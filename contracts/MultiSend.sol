@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.10;
+pragma solidity ^0.8.2;
 
 import './Transfers.sol';
 
 contract MultiSend is Transfers {
-    
     event MultiSended(uint256 total, address tokenAddress);
 
     function sendToken(
@@ -19,6 +18,8 @@ contract MultiSend is Transfers {
         uint8 i = 0;
         for (i; i < _recepients.length; i++)
             transferTokens(msg.sender, payable(_recepients[i]), _tokenAddress, _amounts[i]);
+
+        emit MultiSended(_recepients.length, _tokenAddress);
     }
 
     function sendItems(
@@ -34,6 +35,7 @@ contract MultiSend is Transfers {
         uint8 i = 0;
         for (i; i < _recepients.length; i++)
             transferItems(msg.sender, payable(_recepients[i]), _tokenAddress, _tokenIds[i], _amounts[i], tokenType);
+        emit MultiSended(_recepients.length, _tokenAddress);
     }
 
     // function _split(address[] memory _recepients, uint256[] memory _amount) private {
