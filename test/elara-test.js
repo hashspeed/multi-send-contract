@@ -8,6 +8,5 @@ describe("Elara", function() {
     const elara = await Elara.deploy();
     await elara.deployed();
     const balance= await elara.balanceOf(owner.address);
-
   });
 });

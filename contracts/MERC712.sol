@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
@@ -10,13 +11,10 @@ contract MERC712 is ERC721, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256('MINTER_ROLE');
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721('NFT', 'NFT') {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);
-    }
+    constructor() ERC721('NFT', 'NFT') {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return 'https://mintmaster.app/';
+        return 'https://clonex-assets.rtfkt.com/';
     }
 
     function safeMint(address to) public onlyRole(MINTER_ROLE) {
