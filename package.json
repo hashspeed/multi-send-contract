@@ -2,29 +2,30 @@
   "name": "solidity-boilerplate",
   "scripts": {
     "accounts": "npx hardhat accounts",
-    "test": "npx hardhat test",
+    "test": "npx hardhat --network ganache test",
     "compile": "npx hardhat compile",
     "h-node": "npx hardhat node",
-    "deploy": "npx hardhat run scripts --network maticTestNet",
+    "deploy": "npx hardhat run scripts --network ganache",
     "prettier": "prettier --write 'contracts/**/*.sol'",
     "lint": "prettier --list-different 'contracts/**/*.sol'"
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-ganache": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "chai": "^4.3.4",
     "eslint": "^8.6.0",
     "ethereum-waffle": "^3.4.0",
-    "ethers": "^5.4.0",
-    "hardhat": "^2.4.1",
-    "prettier": "^2.3.2",
-    "prettier-plugin-solidity": "^1.0.0-beta.13",
+    "ethers": "^5.5.3",
+    "hardhat": "^2.8.2",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
     "solhint": "^3.3.6",
     "solhint-plugin-prettier": "^0.0.5"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.1.0",
-    "bignumber.js": "^9.0.1",
+    "@openzeppelin/contracts": "^4.4.2",
+    "bignumber.js": "^9.0.2",
     "dotenv": "^11.0.0"
   }
 }
